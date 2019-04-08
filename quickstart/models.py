@@ -12,11 +12,13 @@ JURUSAN_CHOICES = (
 )
 
 class Mahasiswa(models.Model):
-    created = models.DateTimeField(auto_now_add=True)
-    nim = models.TextField(unique=True)
+    nim = models.CharField(max_length=100,unique=True)
     nama = models.CharField(max_length=100, blank=True, default='')
     aktif = models.BooleanField(default=True)
+    alamat = models.TextField(blank=True,null=True)
     jurusan = models.CharField(choices=JURUSAN_CHOICES, default='python', max_length=100)
+
+    created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ('created',)
