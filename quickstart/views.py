@@ -64,8 +64,8 @@ class DuaView(APIView):
     return Response(data,status=200)
 
 from rest_framework import viewsets
-from quickstart.serializers import (MahasiswaSerializer)
-from quickstart.models import Mahasiswa
+from quickstart.serializers import (MahasiswaSerializer,JurusanSerializer)
+from quickstart.models import (Mahasiswa,Jurusan)
 
 class MahasiswaViewSet(viewsets.ModelViewSet):
     """
@@ -73,3 +73,11 @@ class MahasiswaViewSet(viewsets.ModelViewSet):
     """
     queryset = Mahasiswa.objects.all()
     serializer_class = MahasiswaSerializer
+
+
+class JurusanViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Jurusan.objects.all()
+    serializer_class = JurusanSerializer

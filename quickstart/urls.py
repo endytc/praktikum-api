@@ -5,13 +5,14 @@ from django.urls import path
 from quickstart.views import PertamaView
 from quickstart.views import DuaView
 from quickstart.views import PenjumlahanView
-from quickstart.views import MahasiswaViewSet
+from quickstart.views import (MahasiswaViewSet,JurusanViewSet)
 
 from rest_framework import routers
 from django.conf.urls import include
 
 router = routers.DefaultRouter()
 router.register(r'mahasiswa', MahasiswaViewSet)
+router.register(r'jurusan', JurusanViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
