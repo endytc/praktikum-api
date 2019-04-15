@@ -1,7 +1,7 @@
 *  **Installasi**
 *  install library requirements `pip install -r requirements.txt`, perintah ini akan melakukan instalasi module-module yang dibutuhkan di dalam requirements.txt
 *  buat basisdata dengan mysql, anda tidak perlu menambahkan tabel, tabel akan digenerate oleh django
-*  sesuaikan konfigurasi pada file `quickstart/settings.py`, isi `NAME` dengan database name anda. sesuaikan user dan passwordnya
+*  sesuaikan konfigurasi pada file `restfull/settings.py`, isi `NAME` dengan database name anda. sesuaikan user dan passwordnya
 ```
 DATABASES = {
     # 'default': {
