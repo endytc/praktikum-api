@@ -23,5 +23,5 @@ DATABASES = {
 *  create superuser, inputkan username dan password
      ./manage.py createsuperuser
 *  eksekusi `./manage.py runserver`
-*  buka `http://127.0.0.1:8000/api/v1/` lakukan manipulasi data
+*  buka `http://127.0.0.1:8000/api/v1/` lakukan manipulasi data `jurusan` dan `mahasiswa`
 
