@@ -1,5 +1,0 @@
-*  **Install Django**
-*  install `rest_framework`
-*  eksekusi `./manage.py makemigrations`
-*  eksekusi `./manage.py migrate`
-*  eksekusi `./manage.py runserver`
