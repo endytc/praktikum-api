@@ -64,8 +64,8 @@ class DuaView(APIView):
     return Response(data,status=200)
 
 from rest_framework import viewsets
-from quickstart.serializers import (MahasiswaSerializer,JurusanSerializer)
-from quickstart.models import (Mahasiswa,Jurusan)
+from quickstart.serializers import (MahasiswaSerializer,JurusanSerializer,MatakuliahSerializer,NilaiSerializer)
+from quickstart.models import (Mahasiswa,Jurusan,Matakuliah,Nilai)
 
 class MahasiswaViewSet(viewsets.ModelViewSet):
     """
@@ -74,6 +74,23 @@ class MahasiswaViewSet(viewsets.ModelViewSet):
     queryset = Mahasiswa.objects.all()
     serializer_class = MahasiswaSerializer
 
+    def get_nilai(self,request):
+      return Response({"asdf":"asdf"},200)
+
+    def post_nilai(self,request):
+      mahasiswa = Mahasiswa.objects.get(pk=request.data.get("mahasiswa_id"))
+      matakuliah = Matakuliah.objects.get(pk=request.data.get("matakuliah_id"))
+
+      nilai = Nilai.objects.filter(mahasiswa=mahasiswa,matakuliah=matakuliah).first()
+      if nilai is None:
+        nilai = Nilai()
+      nilai.mahasiswa = mahasiswa
+      nilai.matakuliah = matakuliah
+      nilai.nilai = request.data.get("nilai")
+      action = nilai.save()
+
+      return Response({"message":"ini method post nilai",
+        "status":True},200)
 
 class JurusanViewSet(viewsets.ModelViewSet):
     """
@@ -81,3 +98,17 @@ class JurusanViewSet(viewsets.ModelViewSet):
     """
     queryset = Jurusan.objects.all()
     serializer_class = JurusanSerializer
+
+class MatakuliahViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Matakuliah.objects.all()
+    serializer_class = MatakuliahSerializer
+
+class NilaiViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Nilai.objects.all()
+    serializer_class = NilaiSerializer

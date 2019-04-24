@@ -36,3 +36,14 @@ class Mahasiswa(models.Model):
 
   class Meta:
     ordering = ('created',)
+
+class Matakuliah(models.Model):
+  matakuliah = models.CharField("Matakuliah",max_length=100, blank=True, default='')
+  sks = models.IntegerField("SKS",blank=False)
+  
+class Nilai(models.Model):
+  mahasiswa = models.ForeignKey(Mahasiswa,on_delete=models.CASCADE,null=True)
+  matakuliah = models.ForeignKey(Matakuliah,on_delete=models.CASCADE,null=True)
+  nilai = models.FloatField(blank=False)
+  
+  
