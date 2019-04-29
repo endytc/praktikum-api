@@ -77,8 +77,15 @@ class MahasiswaViewSet(viewsets.ModelViewSet):
     def get_nilai(self,request):
       return Response({"asdf":"asdf"},200)
 
+    '''
+      {
+        "nim":"",
+        "matakuliah_id":"",
+        "nilai":""
+      }
+    '''
     def post_nilai(self,request):
-      mahasiswa = Mahasiswa.objects.get(pk=request.data.get("mahasiswa_id"))
+      mahasiswa = Mahasiswa.objects.filter(nim=request.data.get("nim")).first()
       matakuliah = Matakuliah.objects.get(pk=request.data.get("matakuliah_id"))
 
       nilai = Nilai.objects.filter(mahasiswa=mahasiswa,matakuliah=matakuliah).first()
@@ -89,8 +96,9 @@ class MahasiswaViewSet(viewsets.ModelViewSet):
       nilai.nilai = request.data.get("nilai")
       action = nilai.save()
 
-      return Response({"message":"ini method post nilai",
-        "status":True},200)
+      print(action)
+      
+      return Response({"message":"ini method post nilai","status":True},200)
 
 class JurusanViewSet(viewsets.ModelViewSet):
     """

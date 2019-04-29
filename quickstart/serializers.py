@@ -8,7 +8,12 @@ from quickstart.models import (Mahasiswa,Jurusan,Matakuliah, Nilai)
 
 
 class MahasiswaSerializer(serializers.HyperlinkedModelSerializer):
+    id = serializers.SerializerMethodField()
     jurusan = serializers.SerializerMethodField()
+
+    def get_id(self,mahasiswa):
+        return mahasiswa.id
+    
     def get_jurusan(self,mahasiswa):
         if mahasiswa.jurusan_fk is not None:
             return mahasiswa.jurusan_fk.nama_jurusan
@@ -25,6 +30,10 @@ class JurusanSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('__all__')
 
 class MatakuliahSerializer(serializers.HyperlinkedModelSerializer):
+    id = serializers.SerializerMethodField()
+    def get_id(self,matakuliah):
+        return matakuliah.id
+        
     class Meta:
         model = Matakuliah
         fields = ('__all__')

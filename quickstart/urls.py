@@ -19,8 +19,8 @@ router.register(r'nilai', NilaiViewSet)
 urlpatterns = [
     path('', include(router.urls)),
 
-    path('mahasiswa/nilai/save', MahasiswaViewSet.as_view({'post': 'post_nilai'})),
-    path('mahasiswa/nilai', MahasiswaViewSet.as_view({'get': 'get_nilai'})),
+    # path('mahasiswa/nilai/save', MahasiswaViewSet.as_view({'post': 'post_nilai'})),
+    path('mahasiswa/nilai', MahasiswaViewSet.as_view({'post': 'post_nilai','get': 'get_nilai'})),
 
     path('pertama', PertamaView.as_view()),
     path('dua', DuaView.as_view()),
