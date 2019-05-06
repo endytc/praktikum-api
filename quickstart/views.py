@@ -75,10 +75,6 @@ class DuaView(APIView):
     return Response(data,status=200)
 
 class MahasiswaViewSet(viewsets.ModelViewSet):
-  authentication_classes = (TokenAuthentication,
-                            SessionAuthentication,
-                            BasicAuthentication)
-  permission_classes = (IsAuthenticated,)
   """
   API endpoint that allows groups to be viewed or edited.
   """
