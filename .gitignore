@@ -1,4 +1,4 @@
 *.pyc
-/quickstart/__pycache__/
-/restfull/__pycache__/
-/env/
+/quickstart/__pycache__/*
+/restfull/__pycache__/*
+/env/*
