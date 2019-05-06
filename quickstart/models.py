@@ -22,6 +22,9 @@ class Jurusan(models.Model):
 
   created = models.DateTimeField(auto_now_add=True)
 
+  def __str__(self):
+        return self.nama_jurusan
+
   class Meta:
     ordering = ('created',)
 
@@ -30,9 +33,12 @@ class Mahasiswa(models.Model):
   nama = models.CharField("Nama Mahasiswa",max_length=100, blank=True, default='')
   aktif = models.BooleanField(default=True)
   alamat = models.TextField(blank=True,null=True)
-  jurusan_fk = models.ForeignKey(Jurusan,on_delete=models.CASCADE,null=True)
+  jurusan = models.ForeignKey(Jurusan,on_delete=models.CASCADE,null=True)
 
   created = models.DateTimeField(auto_now_add=True)
+
+  def __str__(self):
+    return "[%s] %s" % (self.nim,self.nama)
 
   class Meta:
     ordering = ('created',)
@@ -40,6 +46,9 @@ class Mahasiswa(models.Model):
 class Matakuliah(models.Model):
   matakuliah = models.CharField("Matakuliah",max_length=100, blank=True, default='')
   sks = models.IntegerField("SKS",blank=False)
+
+  def __str__(self):
+    return self.matakuliah
   
 class Nilai(models.Model):
   mahasiswa = models.ForeignKey(Mahasiswa,on_delete=models.CASCADE,null=True)

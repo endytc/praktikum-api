@@ -15,8 +15,8 @@ class MahasiswaSerializer(serializers.HyperlinkedModelSerializer):
         return mahasiswa.id
     
     def get_jurusan(self,mahasiswa):
-        if mahasiswa.jurusan_fk is not None:
-            return mahasiswa.jurusan_fk.nama_jurusan
+        if mahasiswa.jurusan is not None:
+            return mahasiswa.jurusan.nama_jurusan
         else: 
             return ""
     class Meta:
