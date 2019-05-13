@@ -13,4 +13,4 @@ mahasiswas = mahasiswa_request.json()
 # print(mahasiswa_request.json())
 
 for mahasiswa in mahasiswas["results"]:
-  print("%s %s %s" % (mahasiswa["nim"],mahasiswa["nama"],mahasiswa["jurusan"]))
+  print("%s %s %s" % (mahasiswa["nim"],mahasiswa["nama"],mahasiswa["jurusan_text"]))

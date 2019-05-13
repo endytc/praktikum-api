@@ -1,0 +1,507 @@
+{
+	"info": {
+		"_postman_id": "2412fc60-befb-4aaf-b578-47396fcdbb59",
+		"name": "Praktikum",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Mahasiswa",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nim\": \"07650061\",\n    \"nama\": \"P. W. Cahyo\",\n    \"aktif\": true,\n    \"alamat\": \"Jl Damai\",\n    \"jurusan\": \"http://127.0.0.1:8000/api/v1/jurusan/3/\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/mahasiswa/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"mahasiswa",
+						""
+					]
+				},
+				"description": "Tambah Mahasiswa"
+			},
+			"response": [
+				{
+					"name": "Add Mahasiswa Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nim\": \"07650065\",\n    \"nama\": \"P. W. Cahyo\",\n    \"aktif\": true,\n    \"alamat\": \"Jl Damai\",\n    \"jurusan\": \"http://127.0.0.1:8000/api/v1/jurusan/3/\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/mahasiswa/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"mahasiswa",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 13 May 2019 00:12:08 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.6.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Location",
+							"value": "http://127.0.0.1:8000/api/v1/mahasiswa/4/"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Length",
+							"value": "246"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"url\": \"http://127.0.0.1:8000/api/v1/mahasiswa/4/\",\n    \"id\": 4,\n    \"jurusan_text\": \"Perawat\",\n    \"nim\": \"07650065\",\n    \"nama\": \"P. W. Cahyo\",\n    \"aktif\": true,\n    \"alamat\": \"Jl Damai\",\n    \"created\": \"2019-05-13T00:12:08.449995Z\",\n    \"jurusan\": \"http://127.0.0.1:8000/api/v1/jurusan/3/\"\n}"
+				},
+				{
+					"name": "Duplicate NIM Mahasiswa",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nim\": \"07650061\",\n    \"nama\": \"P. W. Cahyo\",\n    \"aktif\": true,\n    \"alamat\": \"Jl Damai\",\n    \"jurusan\": \"http://127.0.0.1:8000/api/v1/jurusan/3/\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/mahasiswa/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"mahasiswa",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 13 May 2019 00:11:25 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.6.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Length",
+							"value": "51"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nim\": [\n        \"mahasiswa with this nim already exists.\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Mahasiswa",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/mahasiswa/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"mahasiswa",
+						""
+					]
+				},
+				"description": "Menampilkan data mahasiswa"
+			},
+			"response": [
+				{
+					"name": "Data Mahasiswa",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/mahasiswa/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"mahasiswa",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 13 May 2019 00:05:20 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.6.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Length",
+							"value": "676"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=\"\"; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 3,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"url\": \"http://127.0.0.1:8000/api/v1/mahasiswa/1/\",\n            \"id\": 1,\n            \"jurusan\": \"Teknik Informatika\",\n            \"nim\": \"07650062\",\n            \"nama\": \"Fendi Tri Cahyono\",\n            \"aktif\": true,\n            \"alamat\": \"Jl Damai, Mundal, Sariharjo RT 2 RW 19 no 36\",\n            \"created\": \"2019-05-05T23:30:33.805836Z\"\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/v1/mahasiswa/2/\",\n            \"id\": 2,\n            \"jurusan\": \"Perawat\",\n            \"nim\": \"07650061\",\n            \"nama\": \"Siti Aminah\",\n            \"aktif\": true,\n            \"alamat\": \"Jalan-jalan\",\n            \"created\": \"2019-05-13T00:01:41.465336Z\"\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/v1/mahasiswa/3/\",\n            \"id\": 3,\n            \"jurusan\": \"Teknik Informatika\",\n            \"nim\": \"07650063\",\n            \"nama\": \"Fulan\",\n            \"aktif\": true,\n            \"alamat\": \"xx\",\n            \"created\": \"2019-05-13T00:01:56.736649Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Lihat Nilai Mahasiswa",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/mahasiswa/nilai/07650062",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"mahasiswa",
+						"nilai",
+						"07650062"
+					]
+				},
+				"description": "Untuk melihat nila masing-masing mahasiswa: `http://127.0.0.1:8000/api/v1/mahasiswa/nilai/<nim-mahasiswa>`"
+			},
+			"response": [
+				{
+					"name": "Lihat Nilai Mahasiswa",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/mahasiswa/nilai/07650062",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"mahasiswa",
+								"nilai",
+								"07650062"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 13 May 2019 00:13:21 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.6.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Length",
+							"value": "223"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nilai\": [\n        {\n            \"matakuliah\": \"Pemrograman API\",\n            \"nilai\": 1\n        },\n        {\n            \"matakuliah\": \"Basisdata\",\n            \"nilai\": 2\n        },\n        {\n            \"matakuliah\": \"PBO\",\n            \"nilai\": 3\n        }\n    ],\n    \"mahasiswa\": {\n        \"nim\": \"07650062\",\n        \"nama\": \"Fendi Tri Cahyono\"\n    },\n    \"message\": \"Nilai berhasil ditemukan\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Tambah atau Edit Nilai Mahasiswa",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nim\":\"07650061\",\n  \"matakuliah_id\":\"1\",\n  \"nilai\":\"2\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/mahasiswa/nilai",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"mahasiswa",
+						"nilai"
+					]
+				},
+				"description": "API ini digunakan untuk menambahkan atau edit data nilai mahasiswa."
+			},
+			"response": [
+				{
+					"name": "Tambah atau Edit Nilai Mahasiswa",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nim\":\"07650061\",\n  \"matakuliah_id\":\"1\",\n  \"nilai\":\"2\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/mahasiswa/nilai",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"mahasiswa",
+								"nilai"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 13 May 2019 00:17:18 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.6.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Length",
+							"value": "59"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Tambah nilai berhasil dilakukan\",\n    \"status\": true\n}"
+				}
+			]
+		}
+	]
+}

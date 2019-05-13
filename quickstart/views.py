@@ -81,8 +81,24 @@ class MahasiswaViewSet(viewsets.ModelViewSet):
   queryset = Mahasiswa.objects.all()
   serializer_class = MahasiswaSerializer
 
-  def get_nilai(self,request):
-    return Response({"asdf":"asdf"},200)
+  def get_nilai(self,request,nim):
+    mahasiswa = Mahasiswa.objects.filter(nim=nim).first()
+    if mahasiswa is None:
+      return Response({"message":"Mahasiswa dengan nim %s tidak ditemukan" % nim},404)
+
+    nilai = Nilai.objects.filter(mahasiswa=mahasiswa).all()
+    result = {"nilai":[]}
+    for n in nilai:
+      result["nilai"].append({
+        "matakuliah": n.matakuliah.matakuliah,
+        "nilai":n.nilai
+      })
+    result["mahasiswa"] = {
+      "nim": mahasiswa.nim,
+      "nama": mahasiswa.nama,
+    }
+    result["message"] = "Nilai berhasil ditemukan"  
+    return Response(result,200)
 
   '''
     {
@@ -103,9 +119,7 @@ class MahasiswaViewSet(viewsets.ModelViewSet):
     nilai.nilai = request.data.get("nilai")
     action = nilai.save()
 
-    print(action)
-    
-    return Response({"message":"ini method post nilai","status":True},200)
+    return Response({"message":"Tambah nilai berhasil dilakukan","status":True},200)
 
 class JurusanViewSet(viewsets.ModelViewSet):
   """

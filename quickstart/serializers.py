@@ -9,12 +9,12 @@ from quickstart.models import (Mahasiswa,Jurusan,Matakuliah, Nilai)
 
 class MahasiswaSerializer(serializers.HyperlinkedModelSerializer):
     id = serializers.SerializerMethodField()
-    jurusan = serializers.SerializerMethodField()
+    jurusan_text = serializers.SerializerMethodField()
 
     def get_id(self,mahasiswa):
         return mahasiswa.id
     
-    def get_jurusan(self,mahasiswa):
+    def get_jurusan_text(self,mahasiswa):
         if mahasiswa.jurusan is not None:
             return mahasiswa.jurusan.nama_jurusan
         else: 
