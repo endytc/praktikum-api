@@ -119,9 +119,7 @@ class MahasiswaViewSet(viewsets.ModelViewSet):
     nilai.nilai = request.data.get("nilai")
     action = nilai.save()
 
-    print(action)
-    
-    return Response({"message":"ini method post nilai","status":True},200)
+    return Response({"message":"Tambah nilai berhasil dilakukan","status":True},200)
 
 class JurusanViewSet(viewsets.ModelViewSet):
   """
